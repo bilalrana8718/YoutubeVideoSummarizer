@@ -28,7 +28,7 @@ import re
    API"""
 
 # Load Whisper model
-whisperModel = whisper.load_model("base")
+# whisperModel = whisper.load_model("base")
 
 
 VIDEO_DOWNLOAD_PATH = "video_downloads"
