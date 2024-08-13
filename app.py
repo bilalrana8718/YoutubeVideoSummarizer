@@ -560,23 +560,8 @@ def generic():
         yturl = request.json.get('yturl')
         prompt = request.json.get('prompt')
         main_text = get_captions(yturl)
-
-        prompt1 = f'''
-        You are an AI model designed to classify user intents based on custom prompts related to YouTube videos. The goal is to determine the most suitable response format for each user prompt. 
-
-        The possible response categories are:
-        1. **text**: The user seeks a simple, text-based summary or answer.
-        2. **images**: The user is likely interested in a text response that includes specific images from the video to enhance understanding.
-        3. **snippets**: The user wants a text response along with short video clips from the video that highlight key moments.
-        4. **video**: The user prefers a complete video-based response, summarizing or addressing the prompt.
-
-        Please classify the following user prompt into one of these four categories. Your classification should be based on the content, context, and intent inferred from the user's prompt.
-
-        User Prompt: "{prompt}"
-
-        Return the most appropriate category name as your output. Remember, you should only provide the name of the category (e.g., "text", "images", "snippets", "video") without any additional text.
-
-        '''
+        
+        prompt1 = f"I want you to take this prompt from user '{prompt}' now you have to Categorize this prompt into [summarize,questions&answers,recap,opinions&arguments,pros&cons,define,image,snippets,video,other] and you can categorize in only one type.Multiple types not allowed and generate a single category selected from the list and dont add extra text just select one of the categorizes"
 
         response = model.generate_content([prompt1])
        
@@ -584,22 +569,22 @@ def generic():
         
         print(category)
 
-        # if "pros&cons" in category:
-        #     # Make internal POST request to /pros_cons
-        #     prompt = f"Write a balanced and informative analysis of the pros and cons from the following text: {main_text}. Make sure it has a conclusion."
-        # elif "summarize" in category:
-        #     # Make internal POST request to /summarize
-        #     prompt = f"Summarize the following text in approximately 400 words and convert this into english: {main_text}. also add an appropriate heading to summary"
-        # elif "questions&answers" in category:
-        #     prompt = f"Generate a list of inferential questions and answers from the following text: {main_text}. The response must be in this format: **Q: Question?** **A:** Answer. also add an appropriate heading for the query"
-        # elif "technicaldetails" in category:
-        #     prompt = f"Read the following text carefully: {main_text} and Generate all the the technical details about this specific topic of the video from the text of around 150 words. Do not include any pretext in the response. Give Direct answer.also add an appropriate heading for the query"
-        # elif "opinions&arguments" in category:
-        #     prompt = f"Analyze the opinions and arguments discussed in the following text: {main_text}. Separate them into 'Opinions' and 'Arguments' sections.also add an appropriate heading for the query"
-        # elif "recap" in category:
-        #     prompt = f"Recap the event discussed in the following text in the main event points in numbered form : {main_text} in english. Do not include any pre-text like here are the main events. start directly from the points. also add an appropriate heading for the query"
-        # elif "define" in category:
-        #     prompt = f"Figure out the important terms from the following text and briefly define them: {main_text}. Each definition should begin with the term followed by a colon ':' and end with a period '.'. Do not add any introductory phrases such as 'Important Terms Defined'. Start each definition directly. also add an appropriate heading for the query"
+        if "pros&cons" in category:
+            # Make internal POST request to /pros_cons
+            prompt = f"Write a balanced and informative analysis of the pros and cons from the following text: {main_text}. Make sure it has a conclusion."
+        elif "summarize" in category:
+            # Make internal POST request to /summarize
+            prompt = f"Summarize the following text in approximately 400 words and convert this into english: {main_text}. also add an appropriate heading to summary"
+        elif "questions&answers" in category:
+            prompt = f"Generate a list of inferential questions and answers from the following text: {main_text}. The response must be in this format: **Q: Question?** **A:** Answer. also add an appropriate heading for the query"
+        elif "technicaldetails" in category:
+            prompt = f"Read the following text carefully: {main_text} and Generate all the the technical details about this specific topic of the video from the text of around 150 words. Do not include any pretext in the response. Give Direct answer.also add an appropriate heading for the query"
+        elif "opinions&arguments" in category:
+            prompt = f"Analyze the opinions and arguments discussed in the following text: {main_text}. Separate them into 'Opinions' and 'Arguments' sections.also add an appropriate heading for the query"
+        elif "recap" in category:
+            prompt = f"Recap the event discussed in the following text in the main event points in numbered form : {main_text} in english. Do not include any pre-text like here are the main events. start directly from the points. also add an appropriate heading for the query"
+        elif "define" in category:
+            prompt = f"Figure out the important terms from the following text and briefly define them: {main_text}. Each definition should begin with the term followed by a colon ':' and end with a period '.'. Do not add any introductory phrases such as 'Important Terms Defined'. Start each definition directly. also add an appropriate heading for the query"
         
         if "text" in category:
             # # Make a generic response

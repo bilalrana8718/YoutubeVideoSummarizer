@@ -9,11 +9,11 @@ document.addEventListener("DOMContentLoaded", function() {
     // Retrieve the YouTube URL from sessionStorage
     let searchQuery = JSON.parse(sessionStorage.getItem('url'));
 
-    // fetchImages(searchQuery);
+    fetchImages(searchQuery);
 
-    // fetchVideos(searchQuery);
+    fetchVideos(searchQuery);
 
-    // fetchWebSources(searchQuery);
+    fetchWebSources(searchQuery);
     
     searchQuery = reduceText(searchQuery, 30)
     responseTitle.innerHTML = searchQuery
@@ -37,9 +37,9 @@ document.addEventListener("DOMContentLoaded", function() {
             webSourcesContainer.innerHTML = '';
 
             searchQuery = data.search_query;
-            // fetchImages(searchQuery);   
-            // fetchVideos(searchQuery);
-            // fetchWebSources(searchQuery);
+            fetchImages(searchQuery);   
+            fetchVideos(searchQuery);
+            fetchWebSources(searchQuery);
         })
         .catch(error => console.error('Error fetching recommendation data:', error));
     });
