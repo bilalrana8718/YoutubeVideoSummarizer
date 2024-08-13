@@ -28,8 +28,9 @@ body::after {
 }
 nav{
     margin-top: 1%;
-    width: 80vw;
+    width: 100%;
     height:10vh;
+    display: flex;
 }
 #openNav {
     cursor: pointer;
@@ -43,12 +44,15 @@ nav{
     box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
 }
 
-.welcome {
+#welcome {
+    margin-left: 5%;
     color: #6DFD49;
-    font-size: 2vw;
+    font-size: 40px;
     display: inline;
     vertical-align: center  ;
+    width: 100%;
 }
+
 #name{
     color: #ffffff;
     font-size: 2.5vw;
@@ -56,28 +60,41 @@ nav{
     vertical-align: center  ;
 }
 
+.youtube-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 80%; /* Adjust as needed */
+    margin-left: 15%;
+}
 
+.youtube-icon {
+    position: absolute;
+    left: 10px; /* Adjust as needed */
+    pointer-events: none; /* Makes sure the icon doesn't block input events */
+}
 
 #youtube-url {
-    /* Rectangle 367 */
-    margin-left: 10%;
-    width: 20vw;
-    height: 3vh;
+    /* Rectangle 367 */ 
+    width: 80%;
+    height: 60%;
     background: #D9D9D9;
     box-shadow: 0px 2.975px 2.975px rgba(0, 0, 0, 0.25);
-    border-radius: 18.5938px;
+    border-radius: 12px;
     display: inline;
     vertical-align: center;
-    padding-left: 40px; /* Adjust padding to make space for the logo */
+    padding-left: 80px; /* Adjust padding to make space for the logo */
     background-image: url('youtube.png'); /* Update with your logo URL */
     background-size: 20px 20px; /* Adjust the size of the logo */
     background-repeat: no-repeat;
     background-position: 10px center; /* Position the logo */
+    font-family: "Raleway", sans-serif;
+    font-weight: lighter;
 }
 
 #youtube-url::placeholder {
-    text-align: center; 
-    font-size: small;
+    text-align: left; 
+    font-size: normal;
     font-weight: bold;
     vertical-align: center;
 }
@@ -97,6 +114,14 @@ align-items: center;
 
 
 }
+
+.related-web-sources-heading {
+    color: #ffffff;
+    font-family: "Raleway", sans-serif;
+    font-weight: lighter;
+}
+
+
 .flex-container{
     display: flex;
     width: 100%;
@@ -143,11 +168,11 @@ display: inline;
 .prompttext{
     margin-left: 9%;
     
-    width:75%;
+    width:15%;
     height:10%;
-background: #D9D9D9;
-box-shadow: 0px 2.975px 2.975px rgba(0, 0, 0, 0.25);
-border-radius: 18.5938px;
+    background: #D9D9D9;
+    box-shadow: 0px 2.975px 2.975px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
 
 }
 .prompttext::placeholder {
@@ -175,11 +200,11 @@ border-radius: 18.5938px;
     /* Rectangle 367 */
     margin-right: 25%;
     width:90%;
-    height:10%;
+    height:20%;
     background: #D9D9D9;
     box-shadow: 0px 2.975px 2.975px rgba(0, 0, 0, 0.25);
-    border-radius: 28.5938px;
-    padding: 2%;  
+    border-radius: 18.5938px; 
+    padding: 1.3%;
 }
 
 .wrapper button {
@@ -190,44 +215,53 @@ border-radius: 18.5938px;
     height: 50%;
     
     position: absolute;
-    top: 35%;
+    top: 40%;
     right: 0;
-    transform: translateX(-130%);
+    transform: translateX(-180%);
 }
 
 .chat img {
-    width: 35%; /* Set the width you want */
+    width: 30%; /* Set the width you want */
     height: 20%; /* Set the height you want */
-    padding: 2%;
-    margin-left: 6%;
+    /* padding-top: 2%; */
+    margin-left: 8%;
     cursor: pointer;
 }
 /* Hidden modal for enlarged image */
+/* Modal container */
+/* Modal container */
+/* Modal container */
 .modal {
-    display: none;
+    display: none; /* Hidden by default */
     position: fixed; /* Fixed position for full-screen modal */
     z-index: 99999; /* High z-index to overlay other content */
-    padding-top: 10%;
     left: 0;
     top: 0;
-    /* width: 100%;
-    height: 100%; */
-    overflow: auto;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    overflow: auto; /* Enable scrolling if content overflows */
     background-color: rgba(0, 0, 0, 0.8); /* Dark overlay with opacity */
-
 }
-
 /* Modal content (the image) */
 .modal-content {
-    margin: 40;
     display: block;
-    width: 1100px; /* Set width of the preview image */
-    height: 700px; /* Set height of the preview image */
-    object-fit:contain;
-    ;
+    min-width: 854px; /* Minimum width of the content block */
+    min-height: 480px; /* Minimum height of the content block */
 
-  
+    top: 50%; /* Center vertically */
+    left: 45%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust positioning to be exact center */
+    object-fit: CONTAIN; /* Scale the content to fit the container */
+    background-color: rgba(185, 11, 11, 0.8); /* Semi-transparent black background */
+    border: none; /* Ensure no border around the content */
+    box-shadow: salmon; /* Ensure no shadow around the content */
 }
+
+.view-more-images-btn:hover, .view-more-videos-btn:hover {
+    background: #46633e;
+    transition: background 0.5s ease-in-out, color 0.5s ease-in-out; /* Add transition properties for background and color */
+}
+
 
 /* Close button */
 .close {
@@ -310,6 +344,26 @@ html body {
     margin-left: 74%;
     margin-top: 1%;
     margin-right: 1%;
+    color: #ffffff;
+    max-height: 587px;  /* Adjust the height based on your design needs */
+    overflow-y: auto;  /* Enables vertical scrolling */
+    font-family: "Raleway", sans-serif;
+    font-weight: lighter;
+}
+
+
+
+::-webkit-scrollbar{
+    width: 15px;
+}
+
+::-webkit-scrollbar-track{ 
+    background: none;
+}
+
+::-webkit-scrollbar-thumb{ 
+    background: linear-gradient(#091b0ee8, #14ac41);
+    border-radius: 10px;
 }
 
 .section {
@@ -335,7 +389,8 @@ html body {
 }
 
 .image-item {
-    width: 45%;
+    width: 120px; /* Set a fixed width */
+    height: 120px; /* Set a fixed height */
     cursor: pointer;
     border-radius: 10px;
     /* align-items: center; */
@@ -346,13 +401,14 @@ html body {
     cursor: pointer;
     display: flex;
     align-items: center;
-    margin-bottom: -10px;
+    margin-bottom: 20px;
 }
 
 .image-item img {
     width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio */
     border-radius: 5px;
-    margin-right:auto;
 }
 
 .video-item img {
@@ -394,7 +450,51 @@ html body {
     text-align: center;
 }
 
-.view-more-btn:hover {
+/* .view-more-btn:hover {
     background-color: #555;
+} */
+
+
+/* ////////////////////////////////////////
+*/
+.web-sources-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; 
+    margin: 0 auto; 
 }
 
+.box {
+    width: 220px;
+    background-color: #333;
+    color: white;
+    text-align: left;
+    margin: 5px;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    flex: 0 1 auto; 
+}
+
+.date {
+    font-family: "Raleway", sans-serif;
+    font-weight: lighter;
+    font-size: 11px; 
+    color: #ffffff;
+    display: block;
+    margin-top: 5px;
+}
+
+.title {
+    font-family: "Raleway", sans-serif;
+    font-weight: normal;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.publisher {
+    font-family: "Raleway", sans-serif;
+    font-weight: lighter;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
