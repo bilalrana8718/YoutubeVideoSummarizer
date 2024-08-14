@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Title</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -28,10 +28,10 @@
                 Our tool represents a significant leap in harnessing AI capabilities, offering a comprehensive solution for analyzing and summarizing YouTube content. By integrating text extraction, summarization, video creation, and content discovery, we aim to push the boundaries of what AI can achieve in understanding and presenting multimedia information.
             </p>
             <div class="action-container">
-                <button class="view-research-btn">Try now</button>
+                <a class="view-research-btn" href="{{ url_for('indextest') }}" role="button">Try Now</a>
                 <a href="safety.html" class="learn-about-safety">Learn about safety ></a>
             </div>
-            <img src="images/1.webp" alt="Descriptive Alt Text" class="centered-image">
+            <img src="{{ url_for('static', filename='webimages/1.webp') }}" alt="My Image">
             <blockquote class="quote">
                 “Leveraging AI to transform video content analysis is a crucial step towards enhancing multimedia understanding. Our tool integrates cutting-edge techniques to extract, summarize, and visualize information from YouTube videos, while also discovering related content. We are committed to refining these technologies to provide more accurate and insightful analyses.”<br>
                 <cite>[Your Name], Developer at Video Explainer</cite>
@@ -56,17 +56,17 @@
         <!-- Image Grid Section -->
         <div class="container">
             <div class="new-image-card" onclick="window.location.href='page4.html'">
-                <img src="images/2.jpg" alt="Image 1">
+                <img src="{{ url_for('static', filename='webimages/2.webp') }}" alt="My Image">
                 <div class="top-text">Educational Video Insights</div>
                 <div class="overlay">Get in-depth explanations of educational videos for more effective learning.</div>
             </div>
             <div class="new-image-card" onclick="window.location.href='page5.html'">
-                <img src="images/3.png" alt="Image 2">
+                <img src="{{ url_for('static', filename='webimages/3.webp') }}" alt="My Image">
                 <div class="top-text">Tutorial Summaries</div>
                 <div class="overlay">Receive concise summaries of tutorial videos to quickly grasp essential concepts.</div>
             </div>
             <div class="new-image-card" onclick="window.location.href='page6.html'">
-                <img src="images/4.webp" alt="Image 3">
+                <img src="{{ url_for('static', filename='webimages/4.webp') }}" alt="My Image">
                 <div class="top-text">Simplifying Complex Content</div>
                 <div class="overlay">Transform complex video content into easily understandable explanations.</div>
             </div>
@@ -86,17 +86,17 @@
     <!-- New Image Grid Section -->
     <div class="container">
         <div class="new-image-card" onclick="window.location.href='page4.html'">
-            <img src="images/5.webp" alt="Image 1">
+            <img src="{{ url_for('static', filename='webimages/5.webp') }}" alt="My Image">
             <div class="top-text">In-Depth Video Explanations</div>
             <div class="overlay">Our tool simplifies complex topics, making video content easy to understand.</div>
         </div>
         <div class="new-image-card" onclick="window.location.href='page5.html'">
-            <img src="images/6.webp" alt="Image 2">
+            <img src="{{ url_for('static', filename='webimages/6.webp') }}" alt="My Image">
             <div class="top-text">Related Images and Videos</div>
             <div class="overlay">Discover additional images and videos to enhance your learning experience.</div>
         </div>
         <div class="new-image-card" onclick="window.location.href='page6.html'">
-            <img src="images/7.webp" alt="Image 3">
+            <img src="{{ url_for('static', filename='webimages/7.webp') }}" alt="My Image">
             <div class="top-text">Interactive Learning Tools</div>
             <div class="overlay">Engage with supplementary visuals and interactive media for a richer context.</div>
         </div>
@@ -114,12 +114,12 @@
 
     <div class="container">
         <div class="new-image-card" onclick="window.location.href='page4.html'">
-            <img src="images/8.webp" alt="Image 1">
+            <img src="{{ url_for('static', filename='webimages/8.webp') }}" alt="My Image">
             <div class="top-text">In-Depth Video Explanations</div>
             <div class="overlay">Get detailed insights from video text analysis, simplifying complex topics for better understanding.</div>
         </div>
         <div class="new-image-card" onclick="window.location.href='page5.html'">
-            <img src="images/9.webp" alt="Image 2">
+            <img src="{{ url_for('static', filename='webimages/9.webp') }}" alt="My Image">
             <div class="top-text">Rich Media Integration</div>
             <div class="overlay">Augment learning with related images and videos, providing a comprehensive view of the content.</div>
         </div>
@@ -139,17 +139,17 @@
 
     <div class="container">
         <div class="new-image-card" onclick="window.location.href='page4.html'">
-            <img src="images/10.webp" alt="Image 1">
+            <img src="{{ url_for('static', filename='webimages/10.webp') }}" alt="My Image">
             <div class="top-text">Research . Jul 12, 2023</div>
             <div class="overlay">Advanced Techniques in Video Analysis</div>
         </div>
         <div class="new-image-card" onclick="window.location.href='page5.html'">
-            <img src="images/11.webp" alt="Image 2">
+            <img src="{{ url_for('static', filename='webimages/11.webp') }}" alt="My Image">
             <div class="top-text">Research . Mar 5, 2022</div>
             <div class="overlay">Breakthroughs in Video Text Extraction</div>
         </div>
         <div class="new-image-card" onclick="window.location.href='page6.html'">
-            <img src="images/12.webp" alt="Image 3">
+            <img src="{{ url_for('static', filename='webimages/12.webp') }}" alt="My Image">
             <div class="top-text">Research . Nov 20, 2021</div>
             <div class="overlay">Enhancing Learning with Supplementary Media</div>
         </div>
@@ -303,7 +303,7 @@
         </div>
     </div>
 
-    <script src="scripts.js"></script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>
 </html>
 
